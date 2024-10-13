@@ -2,14 +2,17 @@ import React from "react";
 import { StyleSheet, View, Text, Image, TouchableOpacity } from "react-native";
 import FoodImage from "../assets/images/food_image.png";
 
-export default function Home() {
+export default function Home({ navigation }) {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Welcome to Food App</Text>
       <Image source={FoodImage} style={styles.image} />
       <Text style={styles.subtitle}>Discover Delicious Food</Text>
 
-      <TouchableOpacity style={styles.button}>
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => navigation.navigate("Menu")}
+      >
         <Text style={styles.buttonText}>Go to Menu</Text>
       </TouchableOpacity>
     </View>

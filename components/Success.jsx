@@ -1,7 +1,7 @@
 import React from "react";
 import { StyleSheet, View, Text, TouchableOpacity } from "react-native";
 
-export default function Success() {
+export default function Success({ navigation }) {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Order Successful!</Text>
@@ -9,7 +9,10 @@ export default function Success() {
         Thank you for your order. It will be delivered soon!
       </Text>
 
-      <TouchableOpacity style={styles.button}>
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => navigation.navigate("Home")}
+      >
         <Text style={styles.buttonText}>Go to Home</Text>
       </TouchableOpacity>
     </View>

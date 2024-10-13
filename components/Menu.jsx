@@ -25,9 +25,9 @@ const menuItems = [
   { id: "15", name: "French Fries", price: "$2.99" },
 ];
 
-export default function Menu() {
+export default function Menu({ navigation }) {
   const addedToCart = () => {
-    alert("Successfully added!");
+    navigation.navigate("Cart");
   };
   return (
     <View style={styles.container}>

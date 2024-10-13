@@ -13,7 +13,7 @@ const initialCartItems = [
   { id: "3", name: "Beef Burger", price: 7.99, quantity: 1 },
 ];
 
-export default function Cart() {
+export default function Cart({ navigation }) {
   const [cartItems, setCartItems] = useState(initialCartItems);
 
   const incrementQuantity = (id) => {
@@ -41,7 +41,7 @@ export default function Cart() {
   };
 
   const handleCheckout = () => {
-    alert("Order Successful!");
+    navigation.navigate("Success");
   };
 
   return (
