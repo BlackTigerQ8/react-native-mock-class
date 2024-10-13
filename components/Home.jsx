@@ -2,7 +2,8 @@ import React from "react";
 import { StyleSheet, View, Text, Image, TouchableOpacity } from "react-native";
 import FoodImage from "../assets/images/food_image.png";
 
-export default function Home({ navigation }) {
+export default function Home({ navigation, route }) {
+  const { data } = route.params || {};
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Welcome to Food App</Text>
@@ -15,6 +16,9 @@ export default function Home({ navigation }) {
       >
         <Text style={styles.buttonText}>Go to Menu</Text>
       </TouchableOpacity>
+      <View>
+        <Text style={styles.subtitle}>{data}</Text>
+      </View>
     </View>
   );
 }
@@ -43,12 +47,16 @@ const styles = StyleSheet.create({
     fontSize: 18,
     marginBottom: 30,
     color: "#444",
+    borderBottomWidth: 1,
+    borderColor: "#000",
+    borderStyle: "dashed",
   },
   button: {
     backgroundColor: "#ff6347",
     paddingVertical: 15,
     paddingHorizontal: 30,
     borderRadius: 10,
+    marginBottom: 50,
   },
   buttonText: {
     color: "#fff",

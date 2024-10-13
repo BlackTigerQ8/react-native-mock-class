@@ -1,3 +1,4 @@
+import { useNavigation } from "@react-navigation/native";
 import React, { useState } from "react";
 import {
   StyleSheet,
@@ -5,6 +6,7 @@ import {
   Text,
   FlatList,
   TouchableOpacity,
+  Button,
 } from "react-native";
 
 const initialCartItems = [
@@ -15,6 +17,11 @@ const initialCartItems = [
 
 export default function Cart({ navigation }) {
   const [cartItems, setCartItems] = useState(initialCartItems);
+  const nav = useNavigation();
+
+  const navigateToChild = (data) => {
+    nav.navigate("Home", { data });
+  };
 
   const incrementQuantity = (id) => {
     setCartItems((prevItems) =>
@@ -86,6 +93,12 @@ export default function Cart({ navigation }) {
         >
           <Text style={styles.checkoutButtonText}>Checkout</Text>
         </TouchableOpacity>
+      </View>
+      <View>
+        <Button
+          title="Navigate to Home"
+          onPress={() => navigateToChild("Hello from Cart!!!")}
+        />
       </View>
     </View>
   );

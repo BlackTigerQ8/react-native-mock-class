@@ -1,5 +1,5 @@
 import { StatusBar } from "expo-status-bar";
-import { NavigationContainer } from "@react-navigation/native";
+import { NavigationContainer, useNavigation } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
@@ -17,9 +17,11 @@ const Tab = createBottomTabNavigator();
 const MyStacks = () => {
   return (
     <Stack.Navigator>
-      <Stack.Screen name="Home" component={Home} />
-      <Stack.Screen name="Menu" component={Menu} />
-      <Stack.Screen name="Cart" component={Cart} />
+      <Stack.Screen
+        name="Tabs"
+        component={MyTabs}
+        options={{ headerShown: false }}
+      />
       <Stack.Screen name="Success" component={Success} />
     </Stack.Navigator>
   );
@@ -58,14 +60,13 @@ const MyTabs = () => {
           // Return the icon component
           return <Ionicons name={iconName} size={size} color={color} />;
         },
-        tabBarActiveTintColor: "#c5705d", // Active tab color
+        tabBarActiveTintColor: "#ff6347", // Active tab color
         tabBarInactiveTintColor: "gray", // Inactive tab color
       })}
     >
       <Tab.Screen name="Home" component={Home} />
       <Tab.Screen name="Menu" component={Menu} />
       <Tab.Screen name="Cart" component={Cart} />
-      <Tab.Screen name="Success" component={Success} />
     </Tab.Navigator>
   );
 };
